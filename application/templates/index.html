@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Properties Price Estimator</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: #000;">
+ <div class="login">
+	<h1>Properties Price Estimator</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="bedrooms" placeholder="bedrooms" required="required" />
+      <input type="text" name="bathrooms" placeholder="bathrooms" required="required" />
+
+      <label class="container">Furnished
+        <input type="checkbox" name="furnished">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Heating
+        <input type="checkbox" name="hasHeating">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Parking
+        <input type="checkbox" name="parking">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Garage
+        <input type="checkbox" name="hasGarage">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Pets allowed
+        <input type="checkbox" name="hasPetsAllowed">
+        <span class="checkmark"></span>
+      </label>
+      <b>Appliencies</b><br>
+      <label class="container">Dishwasher
+        <input type="checkbox" name="Dishwasher">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Dryer
+        <input type="checkbox" name="Dryer">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Washer
+        <input type="checkbox" name="Washer">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Refrigerator
+        <input type="checkbox" name="Refrigerator">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Range / Oven
+        <input type="checkbox" name="Range / Oven">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Microwave
+        <input type="checkbox" name="Microwave">
+        <span class="checkmark"></span>
+      </label> 
+
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Estimate rent price</button>
+    </form>
+
+  <br>
+  <br>
+  <label class="prediction">
+    {{ prediction_text }}
+  </label>
+
+ </div>
+
+
+</body>
+</html>
