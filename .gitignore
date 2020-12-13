@@ -136,3 +136,6 @@ logs.txt
 
 # credentials
 credentials/*.json
+
+
+.DS_Store
